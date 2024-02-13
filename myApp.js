@@ -7,9 +7,13 @@ const staticFolderPath = appPath + '/public';
 
 app.use('/public', express.static(staticFolderPath));
 
-app.get("/",(req,res) => {
+app.get('/',(req,res) => {
     const absolutePath = path.join(appPath, 'views', 'index.html');
     res.sendFile(absolutePath);
+});
+
+app.get('/json',(req,res) => {
+    res.json({"message": "Hello json"})
 })
 
 
